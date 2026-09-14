@@ -1,10 +1,36 @@
 baseURL: "https://yanbogao27.github.io/"
-languageCode: "zh-cn"
+locale: "zh-CN"
 title: "高研博的技术博客"
 theme: ["PaperMod"]
 
+enableRobotsTXT: true
+
+pagination:
+  pagerSize: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+          inline:
+            - ['\(', '\)']
+        enable: true
+
 params:
+  env: production
+  description: "分享模拟集成电路、电源管理、PLL、EDA 工具及论文阅读中的学习与思考。"
   defaultTheme: auto
+  math: false
 
   ShowToc: true
   TocOpen: true
@@ -38,7 +64,17 @@ menu:
       url: /tags/
       weight: 30
 
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 40
+
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 50
+
     - identifier: about
       name: 关于
       url: /about/
-      weight: 40
+      weight: 60
